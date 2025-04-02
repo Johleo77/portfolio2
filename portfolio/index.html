@@ -31,6 +31,23 @@
     <meta name="twitter:title" content="Johan Leonard | Portfolio">
     <meta name="twitter:description" content="Portfolio de Johan Leonard, étudiant en BTS SIO SLAM, développeur web et mobile">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070">
+    
+    <!-- Styles pour le bouton de mode sombre sur mobile -->
+    <style>
+        .mobile-dark-mode {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-dark-mode {
+                display: flex;
+            }
+            
+            .menu-dark-mode {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -49,6 +66,11 @@
                     <img src="https://i.ibb.co/BjKg2KY/logo-johan.png" alt="Logo Johan Leonard">
                 </a>
                 
+                <!-- Bouton mode sombre visible sur mobile -->
+                <button class="dark-mode-toggle mobile-dark-mode" onclick="toggleDarkMode()" aria-label="Basculer mode sombre">
+                    <span class="material-icons">dark_mode</span>
+                </button>
+                
                 <ul class="header-menu">
                     <li><a href="#slider">Accueil</a></li>
                     <li><a href="#about">À propos</a></li>
@@ -58,7 +80,7 @@
                     <li><a href="#veille">Veille</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li>
-                        <button class="dark-mode-toggle" aria-label="Basculer mode sombre">
+                        <button class="dark-mode-toggle menu-dark-mode" onclick="toggleDarkMode()" aria-label="Basculer mode sombre">
                             <span class="material-icons">dark_mode</span>
                         </button>
                     </li>
@@ -89,77 +111,79 @@
     </section>
     
     <!-- Section À propos -->
-    <section class="section" id="about">
-        <div class="boxed">
-            <div class="section-header" data-aos="fade-up">
-                <h2>À propos de moi</h2>
-                <div class="section-separator"></div>
-            </div>
-            
-            <div class="flex toColumn mCenter">
-                <div class="w40 wm100" data-aos="fade-right">
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974" alt="Johan Leonard" class="profile-pic">
+<section class="section" id="about">
+    <div class="boxed">
+        <div class="section-header" data-aos="fade-up">
+            <h2>À propos de moi</h2>
+            <div class="section-separator"></div>
+        </div>
+        
+        <div class="flex toColumn">
+            <div class="w40 wm100" data-aos="fade-right">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974" alt="Johan Leonard" class="profile-pic">
+                    </div>
+                    
+                    <div class="profile-info">
+                        <h3>Johan LEONARD</h3>
+                        <p class="profile-title">Étudiant en BTS SIO SLAM</p>
+                        
+                        <div class="profile-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Kotlin</span>
+                            <span class="tag">Angular</span>
                         </div>
                         
-                        <div class="profile-info">
-                            <h3>Johan LEONARD</h3>
-                            <p class="profile-title">Étudiant en BTS SIO SLAM</p>
-                            
-                            <div class="profile-tags">
-                                <span class="tag">HTML/CSS</span>
-                                <span class="tag">Kotlin</span>
-                                <span class="tag">Angular</span>
-                            </div>
-                            
-                            <a href="#" class="btn" download>Télécharger mon CV</a>
-                        </div>
+                        <a href="#" class="btn" download>Télécharger mon CV</a>
                     </div>
                 </div>
-                
-                <div class="w60 wm100" data-aos="fade-left">
+            </div>
+            
+            <div class="w60 wm100 about-text-container" data-aos="fade-left">
+                <div class="about-text">
                     <p>
                         Je suis étudiant en BTS SIO (Services Informatiques aux Organisations) option SLAM (Solutions Logicielles et Applications Métiers) au lycée Leonard de Vinci à Melun. Passionné par le développement web et mobile, je me spécialise dans la création d'applications modernes et performantes.
                     </p>
                     <p>
                         Avec de solides compétences en HTML/CSS, Kotlin et Angular, je m'efforce de créer des solutions numériques élégantes et fonctionnelles. Ce portfolio présente mon parcours, mes compétences et mes réalisations dans le domaine du développement.
                     </p>
+                </div>
+                
+                <!-- Parcours scolaire -->
+                <h2 class="timeline-title">Mon parcours</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-date">2023-2025</div>
+                        <div class="timeline-content">
+                            <h3>BTS SIO SLAM</h3>
+                            <p>Lycée Leonard De Vinci, Melun</p>
+                            <p>Formation en développement d'applications et solutions numériques</p>
+                        </div>
+                    </div>
                     
-                    <!-- Parcours scolaire -->
-                    <h2 class="timeline-title">Mon parcours</h2>
-                    <div class="timeline">
-                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                            <div class="timeline-date">2023-2025</div>
-                            <div class="timeline-content">
-                                <h3>BTS SIO SLAM</h3>
-                                <p>Lycée Leonard De Vinci, Melun</p>
-                                <p>Formation en développement d'applications et solutions numériques</p>
-                            </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-date">2020-2021</div>
+                        <div class="timeline-content">
+                            <h3>BTS MCO</h3>
+                            <p>Lycée Etienne Bezout, Nemours</p>
+                            <p>Formation en management commercial et gestion</p>
                         </div>
-                        
-                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                            <div class="timeline-date">2020-2021</div>
-                            <div class="timeline-content">
-                                <h3>BTS MCO</h3>
-                                <p>Lycée Etienne Bezout, Nemours</p>
-                                <p>Formation en management commercial et gestion</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                            <div class="timeline-date">2018-2019</div>
-                            <div class="timeline-content">
-                                <h3>Baccalauréat STMG</h3>
-                                <p>Option Mercatique, Lycée Etienne Bezout</p>
-                                <p>Spécialisation en marketing et communication</p>
-                            </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-date">2018-2019</div>
+                        <div class="timeline-content">
+                            <h3>Baccalauréat STMG</h3>
+                            <p>Option Mercatique, Lycée Etienne Bezout</p>
+                            <p>Spécialisation en marketing et communication</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Section Compétences -->
     <section class="section dark" id="skills">

@@ -1663,3 +1663,140 @@ textarea:focus {
 .active {
   display: flex;
 }
+/* Corrections pour le bouton de mode sombre */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  z-index: 1001; /* S'assurer qu'il reste au-dessus du menu mobile */
+  transition: var(--transition);
+}
+
+.mobile-dark-mode {
+  display: none;
+}
+
+/* Style pour le bouton en mode sombre */
+body.dark-mode .dark-mode-toggle {
+  color: var(--light);
+}
+
+/* S'assurer que l'icône est visible */
+.dark-mode-toggle .material-icons {
+  font-size: 2.4rem;
+}
+
+/* Corriger l'affichage du menu mobile avec le bouton mode sombre */
+@media (max-width: 768px) {
+  .mobile-dark-mode {
+    display: flex;
+  }
+  
+  .header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--light);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 990;
+    display: none;
+  }
+  
+  .header-menu.active {
+    display: flex;
+  }
+  
+  /* S'assurer que le bouton est bien visible dans le menu mobile */
+  .header-menu li:last-child {
+    margin-top: 2rem;
+  }
+  
+  /* Masquer le bouton mode sombre dans le menu sur mobile */
+  .menu-dark-mode {
+    display: none;
+  }
+  
+  /* Ajuster la position du bouton dans le header pour mobile */
+  .header-menu .dark-mode-toggle {
+    padding: 1rem;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .header-menu .dark-mode-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  body.dark-mode .header-menu .dark-mode-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Assurer que le mode sombre est correctement appliqué en toutes circonstances */
+body.dark-mode {
+  background-color: #121212;
+  color: var(--light);
+}
+
+body.dark-mode header {
+  background-color: rgba(18, 18, 18, 0.95);
+}
+
+body.dark-mode .header-menu {
+  background-color: #121212;
+}
+/* Améliorations pour la section À propos */
+.about-text {
+  padding-left: 3rem;
+}
+
+.about-content {
+  margin-bottom: 3rem;
+}
+
+/* Timeline plus compacte */
+.timeline.compact {
+  margin: 2rem 0;
+}
+
+.timeline.compact .timeline-item {
+  margin-bottom: 2.5rem;
+}
+
+.timeline.compact .timeline-content {
+  padding: 1.5rem;
+}
+
+.timeline.compact h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.small-text {
+  font-size: 1.4rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-text {
+    padding-left: 0;
+    margin-top: 3rem;
+  }
+  
+  .timeline-title {
+    text-align: center;
+    margin-top: 4rem;
+  }
+}
